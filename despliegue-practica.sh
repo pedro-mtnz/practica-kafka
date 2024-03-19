@@ -5,7 +5,7 @@
 ## Color mensajes de log
 color_code="32"
 ## Ruta base desde donde ejecutar la práctica
-PATH_BASE="/datos/Datahack/Módulo A2 - Kafka/Practica/"
+PATH_BASE="/datos/Datahack/Módulo A2 - Kafka/Practica"
 ## Ruta donde leer docker-compose file
 DOCKER_COMPOSE_FILE="$PATH_BASE/despliegue/docker-compose.yml"
 ## Ruta donde leer requirementes para librerías Python
@@ -18,6 +18,10 @@ ANALISIS_SENTIMIENTOS_3="$PATH_BASE/scripts/Analizador_sentimientos-3.py"
 DATOS_KSQLDB="$PATH_BASE/scripts/Datos_KSQLDB.py"
 DATOS_HACIA_MONGODB="$PATH_BASE/scripts/Datos_hacia_MongoDB.py"
 
+## Archivo de log
+LOG_FILE_DESPLIEGUE="$PATH_BASE/log/despliegue.log"
+LOG_FILE="$PATH_BASE/log/scripts.log"
+
 # Display a message indicating the Docker Compose process has started
 echo ""
 echo -e "\e[${color_code}m$(date +'%Y-%m-%d %H:%M:%S'): Lanzo docker-compose\e[0m"
@@ -28,7 +32,7 @@ docker-compose -f "$DOCKER_COMPOSE_FILE" up -d
 
 # Display a message indicating the Docker Compose process has started
 echo ""
-echo -e "\e[${color_code}m$(date +'%Y-%m-%d %H:%M:%S'): Se finalzia la ejecución de docker-compose\e[0m"
+echo -e "\e[${color_code}m$(date +'%Y-%m-%d %H:%M:%S'): Se finaliza la ejecución de docker-compose\e[0m"
 echo ""
 
 # Display a message indicating the Docker Compose process has started
@@ -105,9 +109,33 @@ echo ""
 echo -e "\e[${color_code}m$(date +'%Y-%m-%d %H:%M:%S'): Lanzo Producer - Lee Tweets e inserta en topic:\e[0m"
 echo ""
 
-# python3 "$PRODUCTOR_TWEETS" &
-# python3 "$ANALISIS_SENTIMIENTOS_1" &
-# python3 "$ANALISIS_SENTIMIENTOS_2" &
-# python3 "$ANALISIS_SENTIMIENTOS_3" &
-# python3 "$DATOS_KSQLDB" &
-# python3 "$DATOS_HACIA_MONGODB" &
+python3 "$PRODUCTOR_TWEETS" &
+PID=$!
+echo -e "\e[${color_code}m$(date +'%Y-%m-%d %H:%M:%S'): Se lanza script $PRODUCTOR_TWEETS con PID $PID\e[0m"
+
+python3 "$ANALISIS_SENTIMIENTOS_1" &
+PID=$!
+echo -e "\e[${color_code}m$(date +'%Y-%m-%d %H:%M:%S'): Se lanza script $ANALISIS_SENTIMIENTOS_1 con PID $PID\e[0m"
+
+python3 "$ANALISIS_SENTIMIENTOS_2" &
+PID=$!
+echo -e "\e[${color_code}m$(date +'%Y-%m-%d %H:%M:%S'): Se lanza script $ANALISIS_SENTIMIENTOS_2 con PID $PID\e[0m"
+
+python3 "$ANALISIS_SENTIMIENTOS_3" &
+PID=$!
+echo -e "\e[${color_code}m$(date +'%Y-%m-%d %H:%M:%S'): Se lanza script $ANALISIS_SENTIMIENTOS_3 con PID $PID\e[0m"
+
+sleep 15
+
+python3 "$DATOS_KSQLDB" &
+PID=$!
+echo -e "\e[${color_code}m$(date +'%Y-%m-%d %H:%M:%S'): Se lanza script $DATOS_KSQLDB con PID $PID\e[0m"
+
+python3 "$DATOS_HACIA_MONGODB" &
+PID=$!
+echo -e "\e[${color_code}m$(date +'%Y-%m-%d %H:%M:%S'): Se lanza script $DATOS_HACIA_MONGODB con PID $PID\e[0m"
+
+## Levanto servidor web
+
+# cd $PATH_BASE
+python -m http.server 8000 &
