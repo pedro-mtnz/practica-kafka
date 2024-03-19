@@ -9,11 +9,20 @@ import logging
 import random
 from datetime import datetime
 
+# Función de logging
+def escribir_mensaje_log(message):
+    archivo_log = "./log/Analisis_sentimientos-1.log"
+    with open(archivo_log, "a") as f:
+        f.write(message + "\n")
+
 log = logging.getLogger(__name__)
+
+nombre_script = "Analizador_sentimientos-1.py"
 
 # Funcion para el caso de exito en la produccion del metodo
 def on_send_success(record_metadata):
-  print(f"Registro insertado en topic {record_metadata.topic}, con offset {record_metadata.offset}")
+  timestamp_actual = str(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+  escribir_mensaje_log(f"{timestamp_actual} ({nombre_script}) Registro insertado en topic {record_metadata.topic}, con offset {record_metadata.offset}")
 
 # que haremos en caso de error
 def on_send_error(ex):
@@ -33,7 +42,8 @@ try:
   )
   
 except Exception as error:
-  print(f"No se ha podido establecer contacto con el cluster de Kafka: {error}")
+  timestamp_actual = str(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+  escribir_mensaje_log(f"{timestamp_actual} ({nombre_script}) No se ha podido establecer contacto con el cluster de Kafka: {error}")
   quit()
 
 consumer.subscribe(['tweets_raw'])
@@ -54,7 +64,6 @@ for message in consumer:
   mensaje['sentimiento_detectado'] = sentimiento
   mensaje['polaridad'] = analysis.sentiment.polarity
   mensaje['timestamp_enriquecimiento'] = str(datetime.now())
-  print(mensaje)
   key = str(random.randint(0, 9))
   producer.send('tweets_enriched', key=key.encode('utf-8'), value=mensaje).add_callback(on_send_success).add_errback(on_send_error)
 

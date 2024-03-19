@@ -8,7 +8,15 @@ import ast
 import logging
 from datetime import datetime
 
+# Función de logging
+def escribir_mensaje_log(message):
+    archivo_log = "./log/Datos_hacia:MongoDB-1.log"
+    with open(archivo_log, "a") as f:
+        f.write(message + "\n")
+
 log = logging.getLogger(__name__)
+
+nombre_script = "Datos_hacia_MongoDB.py"
 
 # Datos de conexión con MongoDB
 mongo_host = "localhost"
@@ -29,7 +37,8 @@ collection = db["tweets"]
 
 # Funcion para el caso de exito en la produccion del metodo
 def on_send_success(record_metadata):
-    print(f"Registro insertado en topic {record_metadata.topic}, con offset {record_metadata.offset}")
+    timestamp_actual = str(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    escribir_mensaje_log(f"{timestamp_actual} ({nombre_script}) Registro insertado en topic {record_metadata.topic}, con offset {record_metadata.offset}")
 
 
 # que haremos en caso de error
@@ -44,12 +53,14 @@ try:
     auto_offset_reset='earliest')
 
 except Exception as error:
-    print(f"No se ha podido establecer contacto con el cluster de Kafka: {error}")
+    timestamp_actual = str(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    escribir_mensaje_log(f"{timestamp_actual} ({nombre_script}) No se ha podido establecer contacto con el cluster de Kafka: {error}")
     quit()
 
 consumer.subscribe(['tweets_enriched'])
 
 for message in consumer:
+    timestamp_actual = str(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     mensaje = ast.literal_eval(message.value.decode('utf8'))
     # print(mensaje['tweet'])
 
@@ -57,11 +68,11 @@ for message in consumer:
     mensaje["timetamp_insercion_db"] = str(datetime.now())
 
     insert_result = collection.insert_one(mensaje)
-    print(f"Insertado tweet en base de datos: {mensaje['timetamp_insercion_db']}")
+    escribir_mensaje_log(f"{timestamp_actual} ({nombre_script}) Insertado tweet en base de datos: {mensaje['timetamp_insercion_db']}")
 
     tweets_collection = db.tweets
     count = tweets_collection.count_documents({})
-    print(f"El número total de entradas en la colección 'tweets' es: {count}")
+    escribir_mensaje_log(f"{timestamp_actual} ({nombre_script}) El número total de entradas en la colección 'tweets' es: {count}")
 
 # Close the connection
 client.close()

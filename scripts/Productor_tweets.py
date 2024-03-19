@@ -10,7 +10,15 @@ import time
 from datetime import datetime
 from kafka import KafkaProducer
 
+# Función de logging
+def escribir_mensaje_log(message):
+    archivo_log = "./log/Productor_tweets.log"
+    with open(archivo_log, "a") as f:
+        f.write(message + "\n")
+
 log = logging.getLogger(__name__)
+
+nombre_script = "Productor_tweets.py"
 
 # Creamos nuestro Kafka Producer pasandole el broker desplegado
 # Si el broker no está disponible se finaliza la ejecución
@@ -20,7 +28,8 @@ try:
         value_serializer=lambda m: json.dumps(m).encode('utf-8')
     )
 except Exception as error:
-    print(f"No se ha podido establecer contacto con el cluster de Kafka: {error}")
+    timestamp_actual = str(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    escribir_mensaje_log(f"{timestamp_actual} ({nombre_script}) No se ha podido establecer contacto con el cluster de Kafka: {error}")
     quit()
 
 # Abro archivo de tweets descargado de Kaggle y lo guardo en una lista para acceder posteriormente a la columna de interés
@@ -30,7 +39,8 @@ file.close()
 
 # Funcion para el caso de exito en la produccion del metodo
 def on_send_success(record_metadata):
-    print(f"Registro insertado en topic {record_metadata.topic}, en partición {record_metadata.partition} con offset {record_metadata.offset}")
+    timestamp_actual = str(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    escribir_mensaje_log(f"{timestamp_actual} ({nombre_script}) Registro insertado en topic {record_metadata.topic}, en partición {record_metadata.partition} con offset {record_metadata.offset}")
 
 # que haremos en caso de error
 def on_send_error(ex):
