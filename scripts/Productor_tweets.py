@@ -33,7 +33,7 @@ except Exception as error:
     quit()
 
 # Abro archivo de tweets descargado de Kaggle y lo guardo en una lista para acceder posteriormente a la columna de interés
-file = open("/datos/Datahack/Módulo A2 - Kafka/Practica/datos/Tweets.csv", "r")
+file = open("./datos/Tweets.csv", "r")
 data = list(csv.reader(file, delimiter=","))
 file.close()
 
