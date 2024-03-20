@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" modified="2024-03-20T12:02:13.707Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="UYwDyv3SLislINeKfYKI" version="24.0.7" type="device">
+  <diagram name="Page-1" id="b520641d-4fe3-3701-9064-5fc419738815">
+    <mxGraphModel dx="1372" dy="801" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="863dnt-MRuTmCtJNxKZf-3" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.user;" parent="1" vertex="1">
+          <mxGeometry x="976.25" y="90" width="47.5" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="863dnt-MRuTmCtJNxKZf-8" value="&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;Web page&lt;/b&gt;&lt;div&gt;&lt;b&gt;[localhost]&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Muestra estadísticas agregadas&lt;/b&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;strokeColor=#82b366;fillColor=#d5e8d4;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=12;outlineConnect=0;spacingTop=-6;sketch=0;shape=mxgraph.sitemap.page;" parent="1" vertex="1">
+          <mxGeometry x="905" y="240" width="210" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="863dnt-MRuTmCtJNxKZf-9" value="&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Productor_tweets.py&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Lee de archivo externo e inserta en topic de Kafka &lt;i style=&quot;&quot;&gt;tweets_raw&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;strokeColor=none;fillColor=#0079D6;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=12;outlineConnect=0;spacingTop=-6;fontColor=#000000;sketch=0;shape=mxgraph.sitemap.script;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="320" y="230" width="210" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="UUoN9P8smBd7PJZ9owr4-2" value="&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Analisis_sentimientos-1.py&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Lee de archivo externo e inserta en topic de Kafka &lt;i style=&quot;&quot;&gt;tweets_raw&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;strokeColor=none;fillColor=#0079D6;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=12;outlineConnect=0;spacingTop=-6;fontColor=#000000;sketch=0;shape=mxgraph.sitemap.script;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="80" y="490" width="210" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="UUoN9P8smBd7PJZ9owr4-3" value="&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Analisis_sentimientos-2&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;.py&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Lee de archivo externo e inserta en topic de Kafka &lt;i style=&quot;&quot;&gt;tweets_raw&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;strokeColor=none;fillColor=#0079D6;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=12;outlineConnect=0;spacingTop=-6;fontColor=#000000;sketch=0;shape=mxgraph.sitemap.script;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="320" y="490" width="210" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="UUoN9P8smBd7PJZ9owr4-4" value="&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Analisis_sentimientos-3&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;.py&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Lee de archivo externo e inserta en topic de Kafka &lt;i style=&quot;&quot;&gt;tweets_raw&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;strokeColor=none;fillColor=#0079D6;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=12;outlineConnect=0;spacingTop=-6;fontColor=#000000;sketch=0;shape=mxgraph.sitemap.script;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="550" y="490" width="210" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="UUoN9P8smBd7PJZ9owr4-5" value="&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Datos_hacia_MongoDB.py&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Lee de archivo externo e inserta en topic de Kafka &lt;i style=&quot;&quot;&gt;tweets_raw&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;strokeColor=none;fillColor=#0079D6;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=12;outlineConnect=0;spacingTop=-6;fontColor=#000000;sketch=0;shape=mxgraph.sitemap.script;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="550" y="755" width="210" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="UUoN9P8smBd7PJZ9owr4-7" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.queue;fillColor=#D9A741;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="375" y="390" width="100" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="UUoN9P8smBd7PJZ9owr4-8" value="&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Datos_KSQLDB.py&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Lee de archivo externo e inserta en topic de Kafka &lt;i style=&quot;&quot;&gt;tweets_raw&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;strokeColor=none;fillColor=#0079D6;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=12;outlineConnect=0;spacingTop=-6;fontColor=#000000;sketch=0;shape=mxgraph.sitemap.script;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1160" y="480" width="210" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="UUoN9P8smBd7PJZ9owr4-9" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.queue;fillColor=#D9A741;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="950" y="525.5" width="100" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="UUoN9P8smBd7PJZ9owr4-12" value="" style="image;html=1;image=img/lib/clip_art/computers/Database_128x128.png" vertex="1" parent="1">
+          <mxGeometry x="157.5" y="755" width="230" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="UUoN9P8smBd7PJZ9owr4-13" value="" style="image;html=1;image=img/lib/clip_art/computers/Database_128x128.png" vertex="1" parent="1">
+          <mxGeometry x="920" y="740" width="230" height="150" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
