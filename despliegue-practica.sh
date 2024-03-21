@@ -138,4 +138,8 @@ echo -e "\e[${color_code}m$(date +'%Y-%m-%d %H:%M:%S'): Se lanza script $DATOS_H
 ## Levanto servidor web
 
 # cd $PATH_BASE
-python -m http.server 8000 &
+python3 -m http.server 8000 &
+PID=$!
+echo -e "\e[${color_code}m$(date +'%Y-%m-%d %H:%M:%S'): Se levanta servidor web local con PID $PID\e[0m"
+
+echo -e "\e[${color_code}m$(date +'%Y-%m-%d %H:%M:%S'): Fin del despliegue de la práctica\e[0m"
