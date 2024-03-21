@@ -12,3 +12,11 @@ En este proyecto de Github se encuentra el código y documentación necesarios p
 * /datos: Archivo de datos con Tweets
 * despliegue-practica.sh: Archivo sh que levanta todo lo necesario para que la práctica funcione
 
+## Página GITHUB con el código
+
+Esta práctica se entrega de dos maneras:
+* Archivo ZIP en entorno MODDLE
+* Proyecto GITHUB en proyecto público: Accesible en la siguiente URL:
+```
+https://github.com/pedro-mtnz/practica-kafka/
+```
