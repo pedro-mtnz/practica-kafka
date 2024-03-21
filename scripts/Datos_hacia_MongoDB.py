@@ -10,7 +10,7 @@ from datetime import datetime
 
 # Función de logging
 def escribir_mensaje_log(message):
-    archivo_log = "./log/Datos_hacia:MongoDB-1.log"
+    archivo_log = "./log/Datos_hacia-MongoDB-1.log"
     with open(archivo_log, "a") as f:
         f.write(message + "\n")
 
