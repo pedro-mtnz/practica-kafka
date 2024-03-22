@@ -58,9 +58,11 @@ while True:
         matches = re.findall(pattern, response.text)
         result_dict = {sentiment: int(count) for sentiment, count in matches}
 
-        total = result_dict['negativo'] + result_dict['positivo'] + result_dict['neutro']
         if not 'positivo' in result_dict or not 'negativo' in result_dict or not 'neutro' in result_dict:
             continue
+            
+        total = result_dict['negativo'] + result_dict['positivo'] + result_dict['neutro']
+        
         porcentaje_positivo = result_dict['positivo'] * 100 / total
         porcentaje_negativo = result_dict['negativo'] * 100 / total
         porcentaje_neutro = result_dict['neutro'] * 100 / total
