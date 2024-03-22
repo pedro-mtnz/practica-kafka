@@ -32,7 +32,7 @@ Es necesario realizar una pequeña configuración inicial antes de arrancar el p
 ```
 PATH_BASE="/home/usuario/PracticaKafka"
 ```
-***NOTA:*** Al ejecutar un git clone se crea una carpeta con el nombre del proytecto. Esta carpeta debe formar parte de la ruta
+***NOTA:*** Al ejecutar un git clone se crea una carpeta con el nombre del proyecto. Esta carpeta debe formar parte de la ruta
 
 Una vez configurada esta variable, el resto de archivos y carpetas necesarios tendrán la ruta relativa a este path.
 
