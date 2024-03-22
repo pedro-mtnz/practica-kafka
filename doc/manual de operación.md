@@ -27,11 +27,12 @@ En este proyecto se encuentran las siguientes carpetas y archivos:
 ## CONFIGURACIÓN INICIAL
 
 Es necesario realizar una pequeña configuración inicial antes de arrancar el proyecto:
-* En el archivo despliegue-practica.sh hay una variable denomindada **PATH_BASE** en la que se debe indicar la ruta en la que se ha copiado este proyecto. Por ejemplo, si se ha copiado en ***/home/usuario/PracticaKafka*** la variable debe ser:
+* En el archivo despliegue-practica.sh hay una variable denomindada **PATH_BASE** en la que se debe indicar la ruta en la que se ha copiado este proyecto. La ruta debe contener hasta la última parte en la que se encuentra el archivo despliegue-practica.sh Por ejemplo, si se ha copiado en ***/home/usuario/PracticaKafka*** la variable debe ser:
 
 ```
 PATH_BASE="/home/usuario/PracticaKafka"
 ```
+***NOTA:*** Al ejecutar un git clone se crea una carpeta con el nombre del proytecto. Esta carpeta debe formar parte de la ruta
 
 Una vez configurada esta variable, el resto de archivos y carpetas necesarios tendrán la ruta relativa a este path.
 
