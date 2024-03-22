@@ -11,13 +11,13 @@ from datetime import datetime
 
 # Función de logging
 def escribir_mensaje_log(message):
-    archivo_log = "./log/Analisis_sentimientos-1.log"
+    archivo_log = "./log/Analisis_sentimientos-2.log"
     with open(archivo_log, "a") as f:
         f.write(message + "\n")
 
 log = logging.getLogger(__name__)
 
-nombre_script = "Analizador_sentimientos-1.py"
+nombre_script = "Analizador_sentimientos-2.py"
 
 
 # Funcion para el caso de exito en la produccion del metodo
